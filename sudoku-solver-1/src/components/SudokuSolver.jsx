@@ -204,28 +204,8 @@ const SudokuSolver = () => {
   const isNewRecord = bestTime && gameTime < bestTime
 
   const renderMobileLayout = () => (
-    <div className="block lg:hidden space-y-6">
-      <SudokuGrid
-        board={board}
-        originalBoard={originalBoard}
-        selectedCell={selectedCell}
-        onCellClick={handleCellClick}
-        onKeyPress={handleKeyPress}
-      />
-      <Controls
-        onSolve={handleSolve}
-        onNewGame={handleNewGame}
-        onClear={handleClear}
-        onGetPuzzle={handleGetPuzzle}
-        isSolving={isSolving}
-        isFetching={isFetching}
-      />
-    </div>
-  )
-
-  const renderDesktopLayout = () => (
-    <div className="hidden lg:grid lg:grid-cols-3 gap-8">
-      <div className="lg:col-span-2">
+    <div className="lg:hidden flex-1 flex flex-col space-y-3 min-h-0">
+      <div className="flex-1 flex items-center justify-center min-h-0 px-1">
         <SudokuGrid
           board={board}
           originalBoard={originalBoard}
@@ -234,14 +214,42 @@ const SudokuSolver = () => {
           onKeyPress={handleKeyPress}
         />
       </div>
-      <Controls
-        onSolve={handleSolve}
-        onNewGame={handleNewGame}
-        onClear={handleClear}
-        onGetPuzzle={handleGetPuzzle}
-        isSolving={isSolving}
-        isFetching={isFetching}
-      />
+      <div className="flex-shrink-0 px-1">
+        <Controls
+          onSolve={handleSolve}
+          onNewGame={handleNewGame}
+          onClear={handleClear}
+          onGetPuzzle={handleGetPuzzle}
+          isSolving={isSolving}
+          isFetching={isFetching}
+        />
+      </div>
+    </div>
+  )
+
+  const renderDesktopLayout = () => (
+    <div className="hidden lg:flex lg:flex-1 lg:gap-6 min-h-0 items-start">
+      <div className="flex-1 flex items-center justify-center min-h-0">
+        <SudokuGrid
+          board={board}
+          originalBoard={originalBoard}
+          selectedCell={selectedCell}
+          onCellClick={handleCellClick}
+          onKeyPress={handleKeyPress}
+        />
+      </div>
+      <div className="w-96 flex items-start justify-center pt-10 pr-10">
+        <div className="w-full">
+          <Controls
+            onSolve={handleSolve}
+            onNewGame={handleNewGame}
+            onClear={handleClear}
+            onGetPuzzle={handleGetPuzzle}
+            isSolving={isSolving}
+            isFetching={isFetching}
+          />
+        </div>
+      </div>
     </div>
   )
 
@@ -296,16 +304,18 @@ const SudokuSolver = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 py-4 px-4 sm:py-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex flex-col overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full h-full flex flex-col px-2 py-2 sm:px-4 sm:py-6">
         <Header 
           gameTime={gameTime} 
           isPaused={isPaused} 
           onTogglePause={handleTogglePause} 
         />
 
-        {renderMobileLayout()}
-        {renderDesktopLayout()}
+        <div className="flex-1 flex flex-col lg:flex-row gap-4 lg:gap-8 min-h-0">
+          {renderMobileLayout()}
+          {renderDesktopLayout()}
+        </div>
 
         <Status 
           solved={solved} 

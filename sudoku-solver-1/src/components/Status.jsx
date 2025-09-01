@@ -48,7 +48,7 @@ const Status = ({ solved, timer, solveTime, difficulty, bestTimes }) => {
   }
 
   return (
-    <div className="mt-6 sm:mt-8 text-center space-y-4">
+    <div className="mt-2 sm:mt-4 text-center space-y-1 sm:space-y-2 flex-shrink-0">
       {renderSolvedMessage()}
       {renderSolvingMessage()}
       {renderNewRecordMessage()}

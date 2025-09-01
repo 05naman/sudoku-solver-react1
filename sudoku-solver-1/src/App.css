@@ -76,6 +76,43 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+  
+  /* Ensure viewport height is respected on mobile */
+  .h-screen {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .max-w-md {
+    max-width: calc(100vw - 1rem);
+  }
+  
+  .max-w-lg {
+    max-width: calc(100vw - 1rem);
+  }
+  
+  /* Reduce padding on very small screens */
+  .p-2 {
+    padding: 0.25rem;
+  }
+  
+  .p-4 {
+    padding: 0.5rem;
+  }
+  
+  /* Ensure grid fits properly on very small screens */
+  .aspect-square {
+    aspect-ratio: 1;
+    max-height: 60vh;
+  }
 }
 
 /* Tablet responsive improvements */

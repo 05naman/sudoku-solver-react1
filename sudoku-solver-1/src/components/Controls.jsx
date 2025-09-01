@@ -49,7 +49,7 @@ const Controls = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`w-full ${bgColor} text-white py-3 px-4 rounded-lg font-semibold ${hoverColor} disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center shadow-sm`}
+      className={`${bgColor} text-white py-3 px-4 rounded-lg font-semibold ${hoverColor} disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center shadow-sm`}
     >
       {isLoading ? (
         <>
@@ -88,39 +88,33 @@ const Controls = ({
 
   const renderActionButtons = () => (
     <div className="space-y-3">
-      {renderGetPuzzleButton()}
-      {renderSolveButton()}
+      {/* Mobile: 2x2 grid, Desktop: vertical stack */}
+      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+        {renderGetPuzzleButton()}
+        {renderSolveButton()}
+      </div>
       
-      <button
-        onClick={onNewGame}
-        disabled={isSolving || isFetching}
-        className="w-full bg-amber-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
-      >
-        New Game
-      </button>
-      
-      <button
-        onClick={onClear}
-        disabled={isSolving || isFetching}
-        className="w-full bg-red-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
-      >
-        Clear Board
-      </button>
+      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+        <button
+          onClick={onNewGame}
+          disabled={isSolving || isFetching}
+          className="bg-amber-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+        >
+          New Game
+        </button>
+        
+        <button
+          onClick={onClear}
+          disabled={isSolving || isFetching}
+          className="bg-red-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+        >
+          Clear Board
+        </button>
+      </div>
     </div>
   )
 
-  const renderInstructions = () => (
-    <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-      <h4 className="text-sm font-semibold text-blue-900 mb-2">How to Play</h4>
-      <ul className="text-xs text-blue-800 space-y-1">
-        <li>• Select difficulty and click "Get Puzzle" to fetch a new puzzle</li>
-        <li>• Click on any empty cell to select it</li>
-        <li>• Use keyboard (1-9) to input numbers</li>
-        <li>• Press Delete/Backspace to clear a cell</li>
-        <li>• Click "Solve Puzzle" to see the backtracking algorithm in action</li>
-      </ul>
-    </div>
-  )
+
 
   return (
     <div className="space-y-4">
@@ -129,7 +123,6 @@ const Controls = ({
         
         {renderDifficultySelect()}
         {renderActionButtons()}
-        {renderInstructions()}
       </div>
     </div>
   )

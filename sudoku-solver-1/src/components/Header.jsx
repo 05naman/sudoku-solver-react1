@@ -14,7 +14,7 @@ const Header = ({ gameTime, isPaused, onTogglePause }) => {
         Sudoku Solver
       </h1>
       <p className="text-blue-700 text-sm sm:text-base mb-4">
-        Solve puzzles with visual backtracking algorithm
+        Challenge yourself with fun Sudoku puzzles
       </p>
     </div>
   )
@@ -50,7 +50,7 @@ const Header = ({ gameTime, isPaused, onTogglePause }) => {
   )
 
   return (
-    <div className="text-center mb-6 sm:mb-8">
+    <div className="text-center mb-2 sm:mb-6 flex-shrink-0">
       {renderTitle()}
       {renderControls()}
     </div>
