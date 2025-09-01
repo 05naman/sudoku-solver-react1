@@ -88,13 +88,13 @@ const Controls = ({
 
   const renderActionButtons = () => (
     <div className="space-y-3">
-      {/* Mobile: 2x2 grid, Desktop: vertical stack */}
-      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+      {/* Mobile: 2x2 grid, Tablet/Desktop: vertical stack */}
+      <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
         {renderGetPuzzleButton()}
         {renderSolveButton()}
       </div>
       
-      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
         <button
           onClick={onNewGame}
           disabled={isSolving || isFetching}

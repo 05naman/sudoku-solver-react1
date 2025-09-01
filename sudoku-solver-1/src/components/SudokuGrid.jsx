@@ -87,7 +87,7 @@ const SudokuGrid = ({
   )
 
   const renderGrid = () => (
-    <div className="grid grid-cols-9 gap-0.5 bg-blue-200 p-1 rounded-lg w-full max-w-md lg:max-w-lg mx-auto aspect-square">
+    <div className="grid grid-cols-9 gap-0.5 bg-blue-200 p-1 rounded-lg w-full max-w-md md:max-w-lg mx-auto aspect-square">
       {board.map((row, rowIndex) =>
         row.map((cell, colIndex) => renderCell(rowIndex, colIndex, cell))
       )}
@@ -95,7 +95,7 @@ const SudokuGrid = ({
   )
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-2 sm:p-4 w-full max-w-md lg:max-w-lg mx-auto">
+    <div className="bg-white rounded-xl shadow-lg p-2 sm:p-4 w-full max-w-md md:max-w-lg mx-auto">
       {renderGrid()}
     </div>
   )

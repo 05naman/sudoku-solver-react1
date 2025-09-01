@@ -204,7 +204,7 @@ const SudokuSolver = () => {
   const isNewRecord = bestTime && gameTime < bestTime
 
   const renderMobileLayout = () => (
-    <div className="lg:hidden flex-1 flex flex-col space-y-3 min-h-0">
+    <div className="md:hidden flex-1 flex flex-col space-y-3 min-h-0">
       <div className="flex-1 flex items-center justify-center min-h-0 px-1">
         <SudokuGrid
           board={board}
@@ -228,7 +228,7 @@ const SudokuSolver = () => {
   )
 
   const renderDesktopLayout = () => (
-    <div className="hidden lg:flex lg:flex-1 lg:gap-6 min-h-0 items-start">
+    <div className="hidden md:flex md:flex-1 md:gap-6 min-h-0 items-start">
       <div className="flex-1 flex items-center justify-center min-h-0">
         <SudokuGrid
           board={board}
